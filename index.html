@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elf Tracker - House of Raleigh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="snow-container" id="snowContainer"></div>
+
+    <header>
+        <h1>🎄 Elf Tracker 🎄</h1>
+        <p class="subtitle">Welcome to the House of Raleigh!</p>
+        <div class="current-date">Today: <span id="currentDate"></span></div>
+    </header>
+
+    <main class="container">
+        <div class="intro-message">
+            <p>Track your elves' magical journey from the North Pole! 🌟</p>
+        </div>
+
+        <!-- Luella's Elf -->
+        <div class="elf-card" data-child="luella">
+            <div class="elf-header">
+                <div class="elf-avatar">❄️</div>
+                <div class="elf-info">
+                    <h2>Luella's Elf</h2>
+                    <p class="child-age">Age 7</p>
+                </div>
+            </div>
+            <div class="status-badge" id="status-luella">
+                <span class="status-icon">📦</span>
+                <span class="status-text">Preparing at North Pole...</span>
+            </div>
+            <div class="tracking-timeline" id="timeline-luella"></div>
+        </div>
+
+        <!-- Tormund's Elf -->
+        <div class="elf-card" data-child="tormund">
+            <div class="elf-header">
+                <div class="elf-avatar">🦁</div>
+                <div class="elf-info">
+                    <h2>Tormund's Elf</h2>
+                    <p class="child-age">Age 5</p>
+                </div>
+            </div>
+            <div class="status-badge" id="status-tormund">
+                <span class="status-icon">📦</span>
+                <span class="status-text">Preparing at North Pole...</span>
+            </div>
+            <div class="tracking-timeline" id="timeline-tormund"></div>
+        </div>
+
+        <!-- Isadora's Elf -->
+        <div class="elf-card" data-child="isadora">
+            <div class="elf-header">
+                <div class="elf-avatar">⭐</div>
+                <div class="elf-info">
+                    <h2>Isadora's Elf</h2>
+                    <p class="child-age">Coming Soon 💝</p>
+                </div>
+            </div>
+            <div class="status-badge" id="status-isadora">
+                <span class="status-icon">📦</span>
+                <span class="status-text">Preparing at North Pole...</span>
+            </div>
+            <div class="tracking-timeline" id="timeline-isadora"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>✨ Magic happens when you believe ✨</p>
+        <p class="footer-note">House of Raleigh | Dad's House</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
