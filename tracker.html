@@ -23,6 +23,46 @@
             <p>Track your elf's magical journey from the North Pole! 🌟</p>
         </div>
 
+        <!-- Tracking Map -->
+        <div class="tracking-map-container">
+            <h3 class="map-title">📍 Journey to Gilbert, AZ</h3>
+            <div class="tracking-map">
+                <svg class="map-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Journey Path -->
+                    <path id="journeyPath" class="journey-path" d="M 400,50 Q 350,150 300,200 T 200,280 Q 150,320 100,350" stroke-dasharray="5,5"/>
+                    <path id="journeyPathActive" class="journey-path-active" d="M 400,50 Q 350,150 300,200 T 200,280 Q 150,320 100,350"/>
+
+                    <!-- Location Markers -->
+                    <g class="location-marker" data-location="north-pole">
+                        <circle cx="400" cy="50" r="12" class="marker-circle"/>
+                        <text x="400" y="35" class="marker-label">North Pole 🎅</text>
+                    </g>
+
+                    <g class="location-marker" data-location="arctic">
+                        <circle cx="300" cy="200" r="10" class="marker-circle"/>
+                        <text x="300" cy="185" class="marker-label">Arctic Circle ❄️</text>
+                    </g>
+
+                    <g class="location-marker" data-location="canada">
+                        <circle cx="200" cy="280" r="10" class="marker-circle"/>
+                        <text x="200" cy="265" class="marker-label">Canada 🍁</text>
+                    </g>
+
+                    <g class="location-marker" data-location="gilbert">
+                        <circle cx="100" cy="350" r="14" class="marker-circle destination"/>
+                        <text x="100" cy="375" class="marker-label">Gilbert, AZ 🏠</text>
+                    </g>
+
+                    <!-- Moving Elf Icon -->
+                    <g id="movingElf" class="moving-elf">
+                        <circle cx="0" cy="0" r="8" fill="rgba(255, 215, 0, 0.3)"/>
+                        <text x="0" y="5" text-anchor="middle" font-size="16">🎁</text>
+                    </g>
+                </svg>
+            </div>
+            <p class="map-subtitle">Watch your elf's progress along the magical route!</p>
+        </div>
+
         <!-- Single Elf Card - Will be populated by JavaScript -->
         <div class="elf-card" id="elfCard">
             <div class="elf-header">

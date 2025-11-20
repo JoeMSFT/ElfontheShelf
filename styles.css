@@ -480,6 +480,157 @@ footer p {
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* Tracking Map */
+.tracking-map-container {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.map-title {
+    text-align: center;
+    color: #1e3c72;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.tracking-map {
+    background: linear-gradient(180deg, #e3f2fd 0%, #ffffff 100%);
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.journey-path {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 3;
+    opacity: 0.5;
+}
+
+.journey-path-active {
+    fill: none;
+    stroke: url(#pathGradient);
+    stroke-width: 4;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 2s ease-out forwards;
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.location-marker {
+    opacity: 0;
+    animation: fadeInMarker 0.5s ease-out forwards;
+}
+
+.location-marker:nth-child(3) { animation-delay: 0.3s; }
+.location-marker:nth-child(4) { animation-delay: 0.6s; }
+.location-marker:nth-child(5) { animation-delay: 0.9s; }
+.location-marker:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInMarker {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.marker-circle {
+    fill: #667eea;
+    stroke: white;
+    stroke-width: 3;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.marker-circle:hover {
+    fill: #764ba2;
+    r: 14;
+}
+
+.marker-circle.destination {
+    fill: #ff6b9d;
+    animation: pulse-destination 2s ease-in-out infinite;
+}
+
+@keyframes pulse-destination {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.marker-circle.active {
+    fill: #ffd700;
+    animation: pulse-active 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-active {
+    0%, 100% {
+        r: 10;
+        opacity: 1;
+    }
+    50% {
+        r: 14;
+        opacity: 0.7;
+    }
+}
+
+.marker-label {
+    fill: #333;
+    font-size: 14px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.moving-elf {
+    opacity: 0;
+    transform-origin: center;
+}
+
+.moving-elf.active {
+    opacity: 1;
+    animation: elfBounce 2s ease-in-out infinite;
+}
+
+@keyframes elfBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.map-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
 /* THEME: Pink (Luella) */
 body.theme-pink {
     background: linear-gradient(135deg, #ff6b9d 0%, #c86dd7 50%, #ff8fab 100%);
@@ -536,6 +687,26 @@ body.theme-pink .status-badge.out-for-delivery {
 
 body.theme-pink .status-badge.delivered {
     background: linear-gradient(135deg, #ff1493 0%, #c41e5a 100%);
+}
+
+body.theme-pink .map-title {
+    color: #c41e5a;
+}
+
+body.theme-pink .marker-circle {
+    fill: #ff6b9d;
+}
+
+body.theme-pink .marker-circle:hover {
+    fill: #ff1493;
+}
+
+body.theme-pink .marker-circle.active {
+    fill: #ffd700;
+}
+
+body.theme-pink .marker-circle.destination {
+    fill: #c41e5a;
 }
 
 /* THEME: Blue-Purple (Tormund) */
@@ -596,6 +767,26 @@ body.theme-blue-purple .status-badge.delivered {
     background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
 }
 
+body.theme-blue-purple .map-title {
+    color: #1e3c72;
+}
+
+body.theme-blue-purple .marker-circle {
+    fill: #4facfe;
+}
+
+body.theme-blue-purple .marker-circle:hover {
+    fill: #667eea;
+}
+
+body.theme-blue-purple .marker-circle.active {
+    fill: #ffd700;
+}
+
+body.theme-blue-purple .marker-circle.destination {
+    fill: #764ba2;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -643,5 +834,21 @@ body.theme-blue-purple .status-badge.delivered {
     .tracking-number-display {
         font-size: 0.8rem;
         padding: 0.4rem 1rem;
+    }
+
+    .tracking-map-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .map-title {
+        font-size: 1.2rem;
+    }
+
+    .marker-label {
+        font-size: 11px;
+    }
+
+    .map-subtitle {
+        font-size: 0.85rem;
     }
 }

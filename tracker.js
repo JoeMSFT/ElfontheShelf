@@ -241,6 +241,14 @@ const elfTrackingData = {
     }
 };
 
+// Helper function to parse date string in local timezone
+function parseLocalDate(dateString) {
+    const parts = dateString.split('-');
+    // new Date(year, month, day) creates a date in local timezone
+    // Note: month is 0-indexed, so subtract 1
+    return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
     // Get tracking number from URL
@@ -333,7 +341,7 @@ function updateElfTracking(childName) {
     let statusIcon = '📦';
 
     for (const update of elfData.updates) {
-        const updateDate = new Date(update.date);
+        const updateDate = parseLocalDate(update.date);
         updateDate.setHours(0, 0, 0, 0);
 
         if (updateDate <= today) {
@@ -353,6 +361,49 @@ function updateElfTracking(childName) {
 
     // Build timeline - ONLY show updates up to today
     buildTimeline(elfData.updates, today);
+
+    // Update map visualization
+    updateMapPosition(currentStatus);
+}
+
+// Update map visualization based on current status
+function updateMapPosition(status) {
+    const movingElf = document.getElementById('movingElf');
+    const markers = document.querySelectorAll('.location-marker');
+
+    // Position coordinates for each status
+    const positions = {
+        'preparing': { x: 400, y: 50 },      // North Pole
+        'in-transit': { x: 300, y: 200 },    // Arctic Circle / Canada
+        'out-for-delivery': { x: 200, y: 280 }, // Canada
+        'delivered': { x: 100, y: 350 }      // Gilbert, AZ
+    };
+
+    const position = positions[status] || positions.preparing;
+
+    // Move elf icon to position
+    movingElf.setAttribute('transform', `translate(${position.x}, ${position.y})`);
+    movingElf.classList.add('active');
+
+    // Highlight active markers based on status
+    markers.forEach((marker, index) => {
+        const circle = marker.querySelector('.marker-circle');
+        if (circle && !circle.classList.contains('destination')) {
+            circle.classList.remove('active');
+        }
+    });
+
+    // Highlight current location marker
+    if (status === 'preparing') {
+        markers[0]?.querySelector('.marker-circle')?.classList.add('active');
+    } else if (status === 'in-transit') {
+        markers[1]?.querySelector('.marker-circle')?.classList.add('active');
+        markers[2]?.querySelector('.marker-circle')?.classList.add('active');
+    } else if (status === 'out-for-delivery') {
+        markers[2]?.querySelector('.marker-circle')?.classList.add('active');
+    } else if (status === 'delivered') {
+        markers[3]?.querySelector('.marker-circle')?.classList.add('active');
+    }
 }
 
 // Build timeline - ONLY shows past and current updates
@@ -361,7 +412,7 @@ function buildTimeline(updates, today) {
     timeline.innerHTML = '';
 
     updates.forEach((update) => {
-        const updateDate = new Date(update.date);
+        const updateDate = parseLocalDate(update.date);
         updateDate.setHours(0, 0, 0, 0);
 
         // ONLY show updates up to and including today
