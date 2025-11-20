@@ -27,40 +27,76 @@
         <div class="tracking-map-container">
             <h3 class="map-title">📍 Journey to Gilbert, AZ</h3>
             <div class="tracking-map">
-                <svg class="map-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Journey Path -->
-                    <path id="journeyPath" class="journey-path" d="M 400,50 Q 350,150 300,200 T 200,280 Q 150,320 100,350" stroke-dasharray="5,5"/>
-                    <path id="journeyPathActive" class="journey-path-active" d="M 400,50 Q 350,150 300,200 T 200,280 Q 150,320 100,350"/>
+                <svg class="map-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ocean Background -->
+                    <rect width="800" height="500" fill="#b3d9ff" class="ocean"/>
 
-                    <!-- Location Markers -->
+                    <!-- Arctic Ice Cap -->
+                    <ellipse cx="400" cy="50" rx="200" ry="40" fill="#e6f7ff" opacity="0.8"/>
+                    <circle cx="400" cy="50" r="25" fill="#ffffff" opacity="0.9"/>
+
+                    <!-- Greenland -->
+                    <ellipse cx="500" cy="120" rx="60" ry="80" fill="#90ee90" opacity="0.7"/>
+
+                    <!-- Canada (simplified shape) -->
+                    <path d="M 250,150 Q 350,120 450,140 L 460,200 Q 400,250 320,260 Q 250,250 220,220 Z" fill="#90ee90" opacity="0.8"/>
+                    <ellipse cx="350" cy="200" rx="120" ry="70" fill="#90ee90" opacity="0.7"/>
+
+                    <!-- Northern USA -->
+                    <path d="M 180,280 L 500,270 L 520,320 L 200,340 Z" fill="#98d98e" opacity="0.8"/>
+
+                    <!-- Arizona area -->
+                    <ellipse cx="180" cy="370" rx="80" ry="45" fill="#d4a574" opacity="0.8"/>
+                    <circle cx="150" cy="380" r="8" fill="#ff6b6b" opacity="0.6"/>
+
+                    <!-- Mountains (Rocky Mountains) -->
+                    <path d="M 250,300 L 270,270 L 290,300 M 300,305 L 320,275 L 340,305 M 350,300 L 370,270 L 390,300"
+                          stroke="#8b7355" stroke-width="3" fill="none" opacity="0.5"/>
+
+                    <!-- Journey Path (Red/Gold magical trail) -->
+                    <defs>
+                        <linearGradient id="magicPath" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#ff6347;stop-opacity:0.8" />
+                        </linearGradient>
+                    </defs>
+                    <path id="journeyPath" class="journey-path"
+                          d="M 400,70 Q 380,130 350,180 Q 320,230 280,280 Q 220,330 150,380"
+                          stroke="#cccccc" stroke-width="2" fill="none" stroke-dasharray="5,5" opacity="0.4"/>
+                    <path id="journeyPathActive" class="journey-path-active"
+                          d="M 400,70 Q 380,130 350,180 Q 320,230 280,280 Q 220,330 150,380"
+                          stroke="url(#magicPath)" stroke-width="4" fill="none"/>
+
+                    <!-- Location Markers with better visibility -->
                     <g class="location-marker" data-location="north-pole">
-                        <circle cx="400" cy="50" r="12" class="marker-circle"/>
-                        <text x="400" y="35" class="marker-label">North Pole 🎅</text>
+                        <circle cx="400" cy="70" r="15" class="marker-circle" fill="#ffffff" stroke="#4169e1" stroke-width="4"/>
+                        <text x="400" y="45" class="marker-label" style="font-size: 16px;">🎅 North Pole</text>
                     </g>
 
                     <g class="location-marker" data-location="arctic">
-                        <circle cx="300" cy="200" r="10" class="marker-circle"/>
-                        <text x="300" cy="185" class="marker-label">Arctic Circle ❄️</text>
+                        <circle cx="350" cy="180" r="12" class="marker-circle"/>
+                        <text x="350" y="160" class="marker-label">❄️ Arctic</text>
                     </g>
 
                     <g class="location-marker" data-location="canada">
-                        <circle cx="200" cy="280" r="10" class="marker-circle"/>
-                        <text x="200" cy="265" class="marker-label">Canada 🍁</text>
+                        <circle cx="280" cy="280" r="12" class="marker-circle"/>
+                        <text x="280" cy="260" class="marker-label">🍁 Canada</text>
                     </g>
 
                     <g class="location-marker" data-location="gilbert">
-                        <circle cx="100" cy="350" r="14" class="marker-circle destination"/>
-                        <text x="100" cy="375" class="marker-label">Gilbert, AZ 🏠</text>
+                        <circle cx="150" cy="380" r="16" class="marker-circle destination"/>
+                        <text x="150" y="410" class="marker-label" style="font-size: 16px; font-weight: bold;">🏠 Gilbert, AZ</text>
                     </g>
 
-                    <!-- Moving Elf Icon -->
+                    <!-- Moving Elf Icon with glow -->
                     <g id="movingElf" class="moving-elf">
-                        <circle cx="0" cy="0" r="8" fill="rgba(255, 215, 0, 0.3)"/>
-                        <text x="0" y="5" text-anchor="middle" font-size="16">🎁</text>
+                        <circle cx="0" cy="0" r="20" fill="#ffd700" opacity="0.3"/>
+                        <circle cx="0" cy="0" r="12" fill="#ffeb3b" opacity="0.5"/>
+                        <text x="0" y="6" text-anchor="middle" font-size="20">🎁</text>
                     </g>
                 </svg>
             </div>
-            <p class="map-subtitle">Watch your elf's progress along the magical route!</p>
+            <p class="map-subtitle">Watch your elf's magical journey from the North Pole to Dad's house!</p>
         </div>
 
         <!-- Single Elf Card - Will be populated by JavaScript -->

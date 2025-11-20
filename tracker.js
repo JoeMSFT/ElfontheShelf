@@ -332,8 +332,10 @@ function createSnowfall() {
 // Update elf tracking
 function updateElfTracking(childName) {
     const elfData = elfTrackingData[childName];
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+
+    // Get today's date at midnight local time
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     // Find current status
     let currentStatus = 'preparing';
@@ -342,9 +344,8 @@ function updateElfTracking(childName) {
 
     for (const update of elfData.updates) {
         const updateDate = parseLocalDate(update.date);
-        updateDate.setHours(0, 0, 0, 0);
 
-        if (updateDate <= today) {
+        if (updateDate.getTime() <= today.getTime()) {
             currentStatus = update.status;
             statusText = update.description;
             statusIcon = update.icon;
@@ -371,12 +372,12 @@ function updateMapPosition(status) {
     const movingElf = document.getElementById('movingElf');
     const markers = document.querySelectorAll('.location-marker');
 
-    // Position coordinates for each status
+    // Position coordinates for each status (updated to match new map)
     const positions = {
-        'preparing': { x: 400, y: 50 },      // North Pole
-        'in-transit': { x: 300, y: 200 },    // Arctic Circle / Canada
-        'out-for-delivery': { x: 200, y: 280 }, // Canada
-        'delivered': { x: 100, y: 350 }      // Gilbert, AZ
+        'preparing': { x: 400, y: 70 },      // North Pole
+        'in-transit': { x: 350, y: 180 },    // Arctic Circle
+        'out-for-delivery': { x: 280, y: 280 }, // Canada
+        'delivered': { x: 150, y: 380 }      // Gilbert, AZ
     };
 
     const position = positions[status] || positions.preparing;
@@ -411,16 +412,18 @@ function buildTimeline(updates, today) {
     const timeline = document.getElementById('timeline');
     timeline.innerHTML = '';
 
+    const todayTime = today.getTime();
+
     updates.forEach((update) => {
         const updateDate = parseLocalDate(update.date);
-        updateDate.setHours(0, 0, 0, 0);
+        const updateTime = updateDate.getTime();
 
         // ONLY show updates up to and including today
-        if (updateDate <= today) {
+        if (updateTime <= todayTime) {
             let itemClass = 'timeline-item';
-            if (updateDate < today) {
+            if (updateTime < todayTime) {
                 itemClass += ' completed';
-            } else if (updateDate.getTime() === today.getTime()) {
+            } else if (updateTime === todayTime) {
                 itemClass += ' current';
             }
 
