@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elf Tracker - House of Raleigh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="snow-container" id="snowContainer"></div>
+
+    <header>
+        <h1>🎄 Elf Tracker 🎄</h1>
+        <p class="subtitle" id="childName">Welcome to the House of Raleigh!</p>
+        <div class="current-date">Today: <span id="currentDate"></span></div>
+        <div class="tracking-number-display">
+            <span class="label">Tracking #:</span> <span id="displayTrackingNumber"></span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro-message" id="introMessage">
+            <p>Track your elf's magical journey from the North Pole! 🌟</p>
+        </div>
+
+        <!-- Single Elf Card - Will be populated by JavaScript -->
+        <div class="elf-card" id="elfCard">
+            <div class="elf-header">
+                <div class="elf-avatar" id="elfAvatar">❄️</div>
+                <div class="elf-info">
+                    <h2 id="elfTitle">Elf Tracker</h2>
+                    <p class="child-age" id="childInfo">Tracking your elf...</p>
+                </div>
+            </div>
+            <div class="status-badge" id="statusBadge">
+                <span class="status-icon">📦</span>
+                <span class="status-text">Preparing at North Pole...</span>
+            </div>
+            <div class="tracking-timeline" id="timeline"></div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Track a different elf</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>✨ Magic happens when you believe ✨</p>
+        <p class="footer-note">House of Raleigh | Dad's House</p>
+    </footer>
+
+    <script src="tracker.js"></script>
+</body>
+</html>

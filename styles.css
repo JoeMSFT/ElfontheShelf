@@ -286,6 +286,316 @@ footer p {
     font-size: 0.9rem;
 }
 
+/* Landing Page Styles */
+.landing-container {
+    max-width: 600px;
+}
+
+.tracking-input-card {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.santa-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tracking-input-card h2 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.instruction {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.tracking-form {
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.track-button {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.track-button:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    display: none;
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.help-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.preview-elves {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.preview-elves h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.elf-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.preview-icon {
+    font-size: 3rem;
+    opacity: 0.9;
+}
+
+.preview-icon span {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Shake animation for error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Tracking Number Display */
+.tracking-number-display {
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.tracking-number-display .label {
+    opacity: 0.8;
+    margin-right: 0.5rem;
+}
+
+/* Back Link */
+.back-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.back-link a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.back-link a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* THEME: Pink (Luella) */
+body.theme-pink {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c86dd7 50%, #ff8fab 100%);
+}
+
+body.theme-pink .elf-avatar {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa6c1 100%);
+}
+
+body.theme-pink .elf-info h2 {
+    color: #c41e5a;
+}
+
+body.theme-pink .timeline-date {
+    color: #ff6b9d;
+}
+
+body.theme-pink .timeline-item.completed .timeline-icon {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa6c1 100%);
+    border-color: #ff6b9d;
+}
+
+body.theme-pink .timeline-item.current .timeline-icon {
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    border-color: #ff1493;
+}
+
+body.theme-pink .timeline-item.current .timeline-icon {
+    animation: pulse-pink 2s ease-in-out infinite;
+}
+
+@keyframes pulse-pink {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(255, 107, 157, 0);
+    }
+}
+
+body.theme-pink .status-badge {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff1493 100%);
+}
+
+body.theme-pink .status-badge.in-transit {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff8fab 100%);
+}
+
+body.theme-pink .status-badge.out-for-delivery {
+    background: linear-gradient(135deg, #ffa6c1 0%, #ff6b9d 100%);
+}
+
+body.theme-pink .status-badge.delivered {
+    background: linear-gradient(135deg, #ff1493 0%, #c41e5a 100%);
+}
+
+/* THEME: Blue-Purple (Tormund) */
+body.theme-blue-purple {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #764ba2 100%);
+}
+
+body.theme-blue-purple .elf-avatar {
+    background: linear-gradient(135deg, #4facfe 0%, #667eea 100%);
+}
+
+body.theme-blue-purple .elf-info h2 {
+    color: #1e3c72;
+}
+
+body.theme-blue-purple .timeline-date {
+    color: #4facfe;
+}
+
+body.theme-blue-purple .timeline-item.completed .timeline-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #667eea 100%);
+    border-color: #4facfe;
+}
+
+body.theme-blue-purple .timeline-item.current .timeline-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+}
+
+body.theme-blue-purple .timeline-item.current .timeline-icon {
+    animation: pulse-blue 2s ease-in-out infinite;
+}
+
+@keyframes pulse-blue {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(79, 172, 254, 0);
+    }
+}
+
+body.theme-blue-purple .status-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.theme-blue-purple .status-badge.in-transit {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+body.theme-blue-purple .status-badge.out-for-delivery {
+    background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+}
+
+body.theme-blue-purple .status-badge.delivered {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -312,5 +622,26 @@ footer p {
 
     .intro-message {
         font-size: 1.1rem;
+    }
+
+    .tracking-input-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .tracking-input-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .elf-icons {
+        gap: 1.5rem;
+    }
+
+    .preview-icon {
+        font-size: 2.5rem;
+    }
+
+    .tracking-number-display {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
     }
 }

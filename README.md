@@ -5,24 +5,49 @@ A magical website to track the journey of your elves from the North Pole to your
 ## Overview
 
 This website tracks three elves for the House of Raleigh:
-- **Luella's Elf** (Age 7) - Snowflake Jr.
-- **Tormund's Elf** (Age 5) - Brave Lion
-- **Isadora's Elf** (Coming Soon) - Little Star
+- **Luella's Elf** (Age 7) - Snowflake Jr. ❄️
+- **Tormund's Elf** (Age 5) - Brave Lion 🦁
+- **Isadora's Elf** (Coming Soon) - Little Star ⭐
 
 ## Features
 
-- 📅 Real-time tracking from November 17-30, 2024
-- ❄️ Animated snowfall effect
-- 📍 Detailed journey timeline for each elf
-- 🎨 Beautiful Christmas-themed design
-- 📱 Fully responsive (works on phones, tablets, and computers)
-- ✨ Dynamic status updates based on current date
+- 🔐 **Personalized Tracking Numbers** - Each child has their own unique tracking code
+- 📅 **Real-time tracking** from November 17-30, 2024
+- 🎨 **Personalized Themes** - Pink for Luella, Blue/Purple for Tormund
+- ❄️ **Animated snowfall effect**
+- 📍 **Progressive location updates** - Only shows locations up to current date (no spoilers!)
+- 📱 **Fully responsive** - Works on phones, tablets, and computers
+- ✨ **Dynamic status updates** based on current date
+
+## Tracking Numbers
+
+Each child has their own special tracking number to access their personalized elf tracker:
+
+- **Tormund**: `SAMTSIRHCDNUMROT1`
+- **Luella**: `SAMTSIRHCALLEUL1`
+- **Isadora**: `SAMTSIRHCARODASI1` (optional)
+
+Kids can enter their tracking number on the landing page to see their elf's journey!
+
+## How It Works
+
+1. **Landing Page**: Kids visit the website and see a tracking number input form
+2. **Enter Tracking Number**: They enter their unique tracking code (given to them by Dad!)
+3. **Personalized Page**: They're taken to their personalized tracker with:
+   - Their favorite colors as the theme
+   - Their elf's name and avatar
+   - Real-time tracking updates
+4. **Progressive Updates**: New locations appear each day - no future spoilers!
+5. **Delivery Day**: On Nov 30, they'll see that their elf has arrived!
 
 ## Files
 
-- `index.html` - Main webpage structure
-- `styles.css` - Styling and animations
-- `script.js` - Dynamic tracking logic and data
+- `index.html` - Landing page with tracking number input
+- `tracker.html` - Personalized elf tracking page
+- `styles.css` - Styling, animations, and theme colors
+- `landing.js` - Tracking number validation and routing
+- `tracker.js` - Dynamic tracking logic and personalized theming
+- `script.js` - (Legacy file - can be removed)
 
 ## Deployment to houseofraleigh.com
 

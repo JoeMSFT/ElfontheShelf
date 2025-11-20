@@ -6,66 +6,50 @@
     <title>Elf Tracker - House of Raleigh</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="landing-page">
     <div class="snow-container" id="snowContainer"></div>
 
     <header>
         <h1>🎄 Elf Tracker 🎄</h1>
         <p class="subtitle">Welcome to the House of Raleigh!</p>
-        <div class="current-date">Today: <span id="currentDate"></span></div>
     </header>
 
-    <main class="container">
-        <div class="intro-message">
-            <p>Track your elves' magical journey from the North Pole! 🌟</p>
+    <main class="container landing-container">
+        <div class="tracking-input-card">
+            <div class="santa-icon">🎅</div>
+            <h2>Track Your Elf's Journey!</h2>
+            <p class="instruction">Enter your special tracking number to see where your elf is on their magical journey from the North Pole!</p>
+
+            <form id="trackingForm" class="tracking-form">
+                <div class="input-group">
+                    <label for="trackingNumber">Tracking Number</label>
+                    <input
+                        type="text"
+                        id="trackingNumber"
+                        name="trackingNumber"
+                        placeholder="Enter your tracking number"
+                        autocomplete="off"
+                        required
+                    >
+                </div>
+                <button type="submit" class="track-button">
+                    🔍 Track My Elf
+                </button>
+                <div id="errorMessage" class="error-message"></div>
+            </form>
+
+            <div class="help-text">
+                <p>💡 Your tracking number was given to you by Santa's helpers!</p>
+            </div>
         </div>
 
-        <!-- Luella's Elf -->
-        <div class="elf-card" data-child="luella">
-            <div class="elf-header">
-                <div class="elf-avatar">❄️</div>
-                <div class="elf-info">
-                    <h2>Luella's Elf</h2>
-                    <p class="child-age">Age 7</p>
-                </div>
+        <div class="preview-elves">
+            <h3>Who's tracking their elf today?</h3>
+            <div class="elf-icons">
+                <div class="preview-icon">❄️<br><span>Snowflake Jr.</span></div>
+                <div class="preview-icon">🦁<br><span>Brave Lion</span></div>
+                <div class="preview-icon">⭐<br><span>Little Star</span></div>
             </div>
-            <div class="status-badge" id="status-luella">
-                <span class="status-icon">📦</span>
-                <span class="status-text">Preparing at North Pole...</span>
-            </div>
-            <div class="tracking-timeline" id="timeline-luella"></div>
-        </div>
-
-        <!-- Tormund's Elf -->
-        <div class="elf-card" data-child="tormund">
-            <div class="elf-header">
-                <div class="elf-avatar">🦁</div>
-                <div class="elf-info">
-                    <h2>Tormund's Elf</h2>
-                    <p class="child-age">Age 5</p>
-                </div>
-            </div>
-            <div class="status-badge" id="status-tormund">
-                <span class="status-icon">📦</span>
-                <span class="status-text">Preparing at North Pole...</span>
-            </div>
-            <div class="tracking-timeline" id="timeline-tormund"></div>
-        </div>
-
-        <!-- Isadora's Elf -->
-        <div class="elf-card" data-child="isadora">
-            <div class="elf-header">
-                <div class="elf-avatar">⭐</div>
-                <div class="elf-info">
-                    <h2>Isadora's Elf</h2>
-                    <p class="child-age">Coming Soon 💝</p>
-                </div>
-            </div>
-            <div class="status-badge" id="status-isadora">
-                <span class="status-icon">📦</span>
-                <span class="status-text">Preparing at North Pole...</span>
-            </div>
-            <div class="tracking-timeline" id="timeline-isadora"></div>
         </div>
     </main>
 
@@ -74,6 +58,6 @@
         <p class="footer-note">House of Raleigh | Dad's House</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="landing.js"></script>
 </body>
 </html>
